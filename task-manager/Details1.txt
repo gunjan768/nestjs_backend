@@ -1,0 +1,60 @@
+NestJS Pipes:
+
+. Pipes operate on the arguments to be processed by the route handler just before the handler is called.
+. Pipes can perform data transformation or data validation.
+. Pipes can return data - either original or modified - which will be passed on to the route handler.
+. Pipes can throw exceptions. Exceptions thrown will be handled by NestJS and parsed into an error response.
+. Pipes can be asynchronous.
+
+Default Pipes in NestJS:
+
+. Within @nestjs/commom module.
+. ValidationPipe: Validates the compatibility of an entire object against a class (goes well with DTOs). If any property cannot be mapped 
+properly (for example mismatching type) validation will fail. A very common case, therefore having a built-in ValidationPipe is extremely useful.
+. ParseIntPipe: By default, arguments are of type String. This pipe validates that an argument is a number. If successful, the argument is 
+transferred into a Number and passed onto the handler.
+
+Custom Pipe Implementation:
+
+. Pipes are classes annotated with the @Injectable() decorator.
+. Pipes must implement the PipeTransform generic interface. Therfore, every pipe must have a transform() method. This method will be called by 
+NestJS to process the arguments.
+. transform() method accepts two parameters:
+	value: the value of the processed argument
+	metadata (optional): an object containing metadata about the argument
+. Whatever is returned from the transform() method will be passed on to the route handler. Exceptions will be sent back to the client.
+
+
+. Pipe are consumed in different ways:
+
+1) Handler-level pipes: are defined at the handler level, via the @UsePipes() decorator. Such pipe will process all parameters for the incoming 
+requests.
+2) Parameter-level pipes: are defined at the parameter level. Only the specific parameter for which the pipe has been specified will be 
+processed.
+3) Gloabal pipes: are defined at the application level and will be applied to any incoming request.
+
+
+Object Relational Mapping (ORM):
+
+. It is a technique that lets you query and manipulate data from a db using an object oriented paradigm.
+. There are many ORM libraries that allow developers to communicate to the database using their preferred programming language rather than
+sending plain queries directly.
+
+Pros of using an ORM library
+
+. Writing the data model in one place - easier to maintain, less repetition.
+. Lots of things done automatically - db handling, data types, relations etc.
+. No need to write SQL syntax (easy to learn, hard to master). Use your natural way of coding.
+. Database abstraction - you can change the db type whenever you wish.
+. Leverages OOP, therefore things like inheritance are easy to achieve.
+
+Cons of using an ORM library
+
+. You have to learn it, and ORM libraries are not always simple.
+. Performance is alright, but it's easy to neglect.
+. Makes it easy to forget (or never learn) what's happening behind the scenes, which can lead to a variety of maintainability issues.
+
+TypeORM:
+
+. It is an ORM library that can run in NodeJs and be used with TypeScript (Or JS).
+. Helps us define and manage entities, repositories, columns, relations, replication, indices, queries, logging and so much more.

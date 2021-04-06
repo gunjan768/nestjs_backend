@@ -1,0 +1,61 @@
+What is NestJS ?
+
+. Nest (NestJS) is a framework for building efficient, scalable Node.js server-side applications. It uses progressive JavaScript, is built with 
+and fully supports TypeScript (yet still enables developers to code in pure JavaScript) and combines elements of OOP (Object Oriented Programming)
+, FP (Functional Programming), and FRP (Functional Reactive Programming).
+
+. Under the hood, Nest makes use of robust HTTP Server frameworks like Express (the default) and optionally can be configured to use Fastify as 
+well!
+
+Why NestJS ?
+
+. However, while plenty of superb libraries, helpers, and tools exist for Node (and server-side JavaScript), none of them effectively solve 
+the main problem of - Architecture.
+. Nest provides an out-of-the-box application architecture which allows developers and teams to create highly testable, scalable, loosely coupled, 
+and easily maintainable applications. The architecture is heavily inspired by Angular.
+
+
+NestJS Controllers:
+
+. Responsible for handling incoming requests and returning responses to the client.
+. Contain handlers (methods) which handle endpoints and requests methods (GET, POST, DELETE, etc).
+. Can take advantage of DI to consume providers within the same module.
+
+How to use (define) controller ?
+
+. They are defined by decorating a class with the @Controller() decorator.
+. The decorator accepts a string which is the path to be handled by the controller.a
+
+Handlers:
+
+. Handlers are simply methods within the controller class, decorated with decorators such as @Get, @Post, @Delete etc.
+
+NestJS Providers:
+
+. Can be injected into constructors if decorated as an @Injectable via DI.
+. Can be a plain value, a class, sync/async factory etc.
+. Providers must be provided to a module for them to be usable so they must be defined in the 'providers' array of a module.
+. Providers can be exported from a module and then be available to other modules that import it.
+
+Service:
+. Defined as providers. Not all providers are services.
+. Common concept within software development and are not exclusive to NestJS, JS or backend development.
+. When services are wrapped with @Injectable() decorator and are provided to module, they act as a singleton services.
+. Services are the main source of business logic. For example, a service will be called from a controller to validate data, create an item in the 
+db and return response.
+
+DI:
+. Any component within the NestJS ecosystem can inject a provider that is decorated with the @Injectable.
+. We define the dependencies in the constructor of the class. NestJs will take care of the injection for us and it will the be available as a 
+class property (by using access modifier).
+
+Data Transfer Object (DTO):
+
+. A DTO is an object that carries data between the process (wikipedia)
+. A DTO is an object that is used to encapsulate data and send it from one subsystem of an app to another (stackoverflow)
+. A DTO is an object that defines how the data will be sent over the network.
+
+. It is NOT a model definition. It defines the shape of data for a specific case for example for creating a task.
+. Result in increased performance (negligible in small app).
+. Can be useful for data validation.
+. Can be defined using an interface or class.

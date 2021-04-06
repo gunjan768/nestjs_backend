@@ -1,0 +1,27 @@
+Types of Logs
+
+. Log - General purpose logging of important information
+. Warning - Unhandled issue that is NOT fatal or derstructive
+. Error - Unhandled issue than is fatal or derstructive
+. Debug - Useful information that can help us debug the logic in case of an error/warning. Intended for developers
+. Verbose - information providing insights about the behaviour of the application. Intended for operators (for example, support). Usually 
+"too much information".
+
+Configuration:
+
+. Central way of defining values that are loaded upon starting the application (should not be changed during the runtime)
+. Configuration per environment - development, staging, production etc.
+. Configuration can be defined in the code base. Useful if you work with multiple developers via version control. Your configuration should
+always work for with the code it ships with.
+. Can be defined in many ways (JSON, YAML, XML, Environment Variables, etc) using custom solutions or open source libraries.
+
+Codebase Vs Environment Variables
+
+. You could define configuration in your codebase. For example, in a config folder.
+. You could also support configuring values via environment variables (which are provided when running the application).
+
+Websites:
+
+. Pipes: https://docs.nestjs.com/pipes#class-validator
+. Whole project: https://www.codemag.com/Article/2001081/Nest.js-Step-by-Step-Part-3-Users-and-Authentication
+. Error: https://stackoverflow.com/questions/11928013/node-env-is-not-recognized-as-an-internal-or-external-command-operable-comman
